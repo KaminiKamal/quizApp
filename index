@@ -4,6 +4,7 @@
 <body>
 
 <div id="id01"></div>
+<div id="ans" style="display:none"></div>
 <script>
 var myArray = [
 {
@@ -11,26 +12,57 @@ var myArray = [
 "option1":"herbfhrj",
 "option2":"jhercfhjer",
 "option3":"ejrhfvjr",
-"option4":"kerhgfvjer"
+"option4":"kerhgfvjer",
+"answer":"A"
+},
+{
+"question":"hjvchjefrvchrfj?",
+"option1":"herbfhrj",
+"option2":"jhercfhjer",
+"option3":"ejrhfvjr",
+"option4":"kerhgfvjer",
+"answer":"C"
 }
 ];
 
 myFunction(myArray);
 
+function validate(id,i){
+//var modal = document.getElementById('myModal');
+var a="hidden_ans"+i;
+var req=document.getElementById(id).value;
+var res=document.getElementById(a).value;
+
+if(req==res){alert('done');
+}
+
+if(req!=res){alert('wrong'); document.getElementById(id).checked=false;}
+}
+</script>
+
+<script>
+
+myFunction(myArray);
+
 function myFunction(arr) {
     var out = "";
+var a="A. ", b="B. ", c="C. ";
+
     var i;
     for(i = 0; i < arr.length; i++) {
-        out +=  arr[i].question + ' <br><input type="radio">' +arr[i].option1 + '</input>'+
-        '<br>'+'<input type="radio">' +  arr[i].option2 +'</input>'+'<br>'+'<input type="radio">' +  arr[i].option3 +'</input>'+ '<br>'+'<input type="radio">' +
-        arr[i].option4 + '</input>'+'<br><hr>';
+var ans;
+ans=arr[i].answer;
+out+='<table><tr><td>'+arr[i].question+'</tr></td></table>'+
+'<table><tr><td class="td-option" id="abc"><input type="radio"  onclick="return validate(id,'+i+')"    id="b1" value="A">'+a+'</input>'+arr[i].option1+'</td></tr>'+
+'<table><tr><td class="td-option" id="abc"><input  type="radio" onclick="return validate(id,'+i+')" id="b2" value="B">'+b+'</input>'+arr[i].option2+'</tr></td>'+
+'<table><tr><td class="td-option" id="abc"><input type="radio" onclick="return validate(id,'+i+')" id="b3" value="C">'+c+'</button>'+arr[i].option3+'</tr></td></table>'+
+'<input type="hidden" class="xyz" id="hidden_ans'+i+'" value='+ans+'></input><br><br><hr>';
+        
     }
     document.getElementById("id01").innerHTML = out;
 }
-function load_nextA(){
-alert("hi");
-$("#id01").hide();
-}
+
+
 </script>
 <input type="button" value="next" onclick="load_nextA()"></input>
 </body>
