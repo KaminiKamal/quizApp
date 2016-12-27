@@ -45,26 +45,6 @@ var myArray = [
 
 
 
-function validate(id,i){
-//var modal = document.getElementById('myModal');
-var a="hidden_ans"+i;
-var req=document.getElementById(id).value;
-var res=document.getElementById(a).value;
-
-if(req==res){alert('done');
-//count++;
-//alert(count);
-}
-
-if(req!=res)
-	{alert('wrong'); 
-document.getElementById(id).checked=false;
-
-}
-}
-</script>
-
-<script>
 
 myFunction(myArray);
 
@@ -77,11 +57,11 @@ var a="A. ", b="B. ", c="C. ";
 
 var ans;
 ans=arr[i].answer;
-out='<table><tr><td>'+arr[i].question+'</tr></td></table>'+
-'<table><tr><td class="td-option" id="abc"><input type="radio"  onclick="return validate(id,'+i+')"    id="b1" value="A">'+a+'</input>'+arr[i].option1+'</td></tr>'+
-'<table><tr><td class="td-option" id="abc"><input  type="radio" onclick="return validate(id,'+i+')" id="b2" value="B">'+b+'</input>'+arr[i].option2+'</tr></td>'+
-'<table><tr><td class="td-option" id="abc"><input type="radio" onclick="return validate(id,'+i+')" id="b3" value="C">'+c+'</button>'+arr[i].option3+'</tr></td></table>'+
-'<input type="hidden" class="xyz" id="hidden_ans'+i+'" value='+ans+'></input><br><br><hr>';
+out='<p>'+arr[i].question+'</p>'+
+'<form><input type="radio"   onclick="validate(id,'+i+')" id="b1" class="quiz" value="A" name="A">'+a+' '+arr[i].option1+'<br/>'+
+'<input  type="radio"  onclick="validate(id,'+i+')" id="b2" class="quiz" value="B" name="A">'+b+' '+arr[i].option2+'<br/>'+
+'<input type="radio"   onclick="validate(id,'+i+')"  id="b3" class="quiz"value="C"    name="A">'+c+' '+arr[i].option3+'<br/></form>'+
+'<input type="hidden" class="xyz" id="hidden_ans'+i+'" value='+ans+'></input><br><hr>';
 rem++;
         if(rem==1){document.getElementById("id01").innerHTML = out; }
         if(rem==2){document.getElementById("id02").innerHTML = out;}
@@ -90,11 +70,34 @@ rem++;
     }
     //document.getElementById("id01").innerHTML = out;
 }
+function validate(id,i){
+//var modal = document.getElementById('myModal');
+var c="hidden_ans";
+c=c.trim();
+var a=c+i;
+var req=document.getElementById(id).value;
+//alert(req);
+var res=document.getElementById(a).value;
+//alert(res);
+if(req==res){alert('done');
+//count++;
+//alert(count);
+}
+
+if(req!=res)
+
+    {
+//$('.quiz input').addAttr('unchecked');
+        alert('wrong'); 
+
+}
+}
 
 </script>
 <script>
 var next=0;
 function load_nextA(){
+    
 next++;
 //$("#id01").attr("display","none");
 if(next==1){
@@ -114,6 +117,11 @@ if(next==3)
 	alert("data submitted");
 }
 }
+$(document).on('click','.quiz', function(){     
+      $('.quiz').attr('checked', false);
+
+      $(this).attr('checked', true);         
+});
 </script>
 <input type="button" value="next" onclick="load_nextA()" id="next-button"></input>
 </body>
