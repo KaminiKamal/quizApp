@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+
+<div id="id01"></div>
+<script>
+var myArray = [
+{
+"question":"hjvchjefrvchrfj?",
+"option1":"herbfhrj",
+"option2":"jhercfhjer",
+"option3":"ejrhfvjr",
+"option4":"kerhgfvjer"
+}
+];
+
+myFunction(myArray);
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out +=  arr[i].question + ' <br><input type="radio">' +arr[i].option1 + '</input>'+
+        '<br>'+'<input type="radio">' +  arr[i].option2 +'</input>'+'<br>'+'<input type="radio">' +  arr[i].option3 +'</input>'+ '<br>'+'<input type="radio">' +
+        arr[i].option4 + '</input>'+'<br><hr>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+function load_nextA(){
+alert("hi");
+$("#id01").hide();
+}
+</script>
+<input type="button" value="next" onclick="load_nextA()"></input>
+</body>
+</html>
