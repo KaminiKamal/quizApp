@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body>
 
 <div id="id01"></div>
-<div id="ans" style="display:none"></div>
+<div id="id02" style="display:none"></div>
+<div id="id03" style="display:none"></div>
 <script>
+var count=0;
 var myArray = [
 {
-"question":"hjvchjefrvchrfj?",
+"question":"ques1",
 "option1":"herbfhrj",
 "option2":"jhercfhjer",
 "option3":"ejrhfvjr",
@@ -16,7 +18,23 @@ var myArray = [
 "answer":"A"
 },
 {
-"question":"hjvchjefrvchrfj?",
+"question":"ques2",
+"option1":"herbfhrj",
+"option2":"jhercfhjer",
+"option3":"ejrhfvjr",
+"option4":"kerhgfvjer",
+"answer":"C"
+},
+{
+"question":"ques3",
+"option1":"herbfhrj",
+"option2":"jhercfhjer",
+"option3":"ejrhfvjr",
+"option4":"kerhgfvjer",
+"answer":"A"
+},
+{
+"question":"ques4",
 "option1":"herbfhrj",
 "option2":"jhercfhjer",
 "option3":"ejrhfvjr",
@@ -25,7 +43,7 @@ var myArray = [
 }
 ];
 
-myFunction(myArray);
+
 
 function validate(id,i){
 //var modal = document.getElementById('myModal');
@@ -34,9 +52,15 @@ var req=document.getElementById(id).value;
 var res=document.getElementById(a).value;
 
 if(req==res){alert('done');
+//count++;
+//alert(count);
 }
 
-if(req!=res){alert('wrong'); document.getElementById(id).checked=false;}
+if(req!=res)
+	{alert('wrong'); 
+document.getElementById(id).checked=false;
+
+}
 }
 </script>
 
@@ -48,22 +72,49 @@ function myFunction(arr) {
     var out = "";
 var a="A. ", b="B. ", c="C. ";
 
-    var i;
+    var i; var rem=0;
     for(i = 0; i < arr.length; i++) {
+
 var ans;
 ans=arr[i].answer;
-out+='<table><tr><td>'+arr[i].question+'</tr></td></table>'+
+out='<table><tr><td>'+arr[i].question+'</tr></td></table>'+
 '<table><tr><td class="td-option" id="abc"><input type="radio"  onclick="return validate(id,'+i+')"    id="b1" value="A">'+a+'</input>'+arr[i].option1+'</td></tr>'+
 '<table><tr><td class="td-option" id="abc"><input  type="radio" onclick="return validate(id,'+i+')" id="b2" value="B">'+b+'</input>'+arr[i].option2+'</tr></td>'+
 '<table><tr><td class="td-option" id="abc"><input type="radio" onclick="return validate(id,'+i+')" id="b3" value="C">'+c+'</button>'+arr[i].option3+'</tr></td></table>'+
 '<input type="hidden" class="xyz" id="hidden_ans'+i+'" value='+ans+'></input><br><br><hr>';
-        
+rem++;
+        if(rem==1){document.getElementById("id01").innerHTML = out; }
+        if(rem==2){document.getElementById("id02").innerHTML = out;}
+        if(rem==3){document.getElementById("id03").innerHTML = out;}
+
     }
-    document.getElementById("id01").innerHTML = out;
+    //document.getElementById("id01").innerHTML = out;
 }
 
-
 </script>
-<input type="button" value="next" onclick="load_nextA()"></input>
+<script>
+var next=0;
+function load_nextA(){
+next++;
+//$("#id01").attr("display","none");
+if(next==1){
+$("#id01").css("display","none");
+$("#id02").css("display","inline");
+}
+if(next==2){
+
+	$("#id01").css("display","none");
+$("#id02").css("display","none");
+$("#id03").css("display","inline");
+$("#next-button").attr('value', 'Submit');
+}
+if(next==3)
+{
+
+	alert("data submitted");
+}
+}
+</script>
+<input type="button" value="next" onclick="load_nextA()" id="next-button"></input>
 </body>
 </html>
