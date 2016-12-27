@@ -123,6 +123,7 @@ $(document).on('click','.quiz', function(){
 
       $(this).attr('checked', true);         
 });
+VVI IMPORTANT NOTE: ALWAYS SPECIFY NAME ATTRIBUTE WITH SAME VALUE TO THE RADIO BUTTONS ELSE  MULTIPLE BUTTONS WILL GET SELECTED AND NORMAL CODES WON'T WORK FOR THEM---------  :) 
 */
 </script>
 <input type="button" value="next" onclick="load_nextA()" id="next-button"></input>
