@@ -117,11 +117,13 @@ if(next==3)
 	alert("data submitted");
 }
 }
+/*
 $(document).on('click','.quiz', function(){     
       $('.quiz').attr('checked', false);
 
       $(this).attr('checked', true);         
 });
+*/
 </script>
 <input type="button" value="next" onclick="load_nextA()" id="next-button"></input>
 </body>
