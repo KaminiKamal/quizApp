@@ -1,0 +1,34 @@
+body{color:#006666;}
+  .Q{background:white;margin:0px -15px 10px -15px;padding:10px;}
+  .Q > span {font-size:20px;}
+.col-sm-12{background-color:;padding:10px;}
+#options{background-color:lavenderblush;}
+#b1, #b2, #b3{padding:0px 10px 0px 10px;}
+#b1, #b2, #b3 > span {}
+#next-button{border-radius:2px 30px 30px 2px;float:right;height:40px;transition: all 0.5s;
+  cursor: pointer;color:white;
+}
+
+.col-sm-12 >span{font-weight:400;padding:10px;font-size:18px;margin:0px 10px 0px 10px;}
+.container-fluid > div > h1{text-align:center;background: #00666E;padding:10px;}
+.container-fluid > row{padding:10px; margin-bottom:20px;}
+#button-in{padding:2px;margin:10px 0px 0px 0px;}
+.btn  > span{float:right;color:white;font-weight:bold;border-radius:2px 20px 20px 2px ; background: black;width:100px;height:26px;vertical-align: middle;padding-top: 2px;transition: 0.5s;}
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  color:white;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
